@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "antd": "^3.8.2",
-    "formsy": "^0.19.2",
+    "formsy-react": "^1.1.4",
+    "moment": "^2.22.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.4"
