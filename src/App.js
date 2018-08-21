@@ -48,7 +48,12 @@ class App extends Component {
         />
         <Radio label="Selecciona un option" name="radioname" required />
         <Checkbox label="Selecciona un option" name="Checkboxname" />
-        <Datepicker label="Selecciona una fecha" name="datepicker" required />
+        <Datepicker
+          label="Selecciona una fecha"
+          name="datepicker"
+          defaultValue="August 22, 2018"
+          required
+        />
         <Switch
           label="Selecciona un option"
           name="Switchname"

@@ -26,7 +26,7 @@ class MyInput extends React.Component {
   componentDidMount() {
     const { defaultValue, setValue } = this.props
     this.setState(
-      ({ blurred }) => ({ blurred: !blurred }),
+      ({ blurred }) => (defaultValue ? { blurred: !blurred } : { blurred }),
       () => defaultValue && setValue(defaultValue)
     )
   }
