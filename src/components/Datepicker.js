@@ -2,6 +2,7 @@ import React from 'react'
 import { withFormsy } from 'formsy-react'
 import { Form, DatePicker } from 'antd'
 import moment from 'moment'
+import locale from 'antd/lib/date-picker/locale/es_ES'
 const { Item } = Form
 
 class MyInput extends React.Component {
@@ -37,6 +38,7 @@ class MyInput extends React.Component {
           hasFeedback={feedBack && blurred}
         >
           <DatePicker
+            locale={locale}
             placeholder={placeholder}
             id={name}
             name={name}

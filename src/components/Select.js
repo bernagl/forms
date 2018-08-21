@@ -6,11 +6,20 @@ const { Option } = Select
 
 class MyInput extends React.Component {
   static defaultProps = {
+    defaultValue: null,
     feedBack: true,
     type: 'text'
   }
 
   state = { error: false, blurred: false }
+
+  componentDidMount() {
+    const { defaultValue, setValue } = this.props
+    this.setState(
+      ({ blurred }) => ({ blurred: !blurred }),
+      () => defaultValue && setValue(defaultValue)
+    )
+  }
 
   changeValue = value => {
     this.props.setValue(value)
@@ -23,7 +32,14 @@ class MyInput extends React.Component {
   render() {
     const errorMessage = this.props.getErrorMessage()
     const value = this.props.getValue() || ''
-    const { feedBack, label, name, placeholder, type } = this.props
+    const {
+      defaultValue,
+      feedBack,
+      label,
+      name,
+      placeholder,
+      type
+    } = this.props
     const { blurred } = this.state
     return (
       <div>
@@ -35,6 +51,7 @@ class MyInput extends React.Component {
           hasFeedback={feedBack && blurred}
         >
           <Select
+            defaultValue={defaultValue}
             placeholder={placeholder}
             id={name}
             name={name}
@@ -42,9 +59,9 @@ class MyInput extends React.Component {
             onChange={this.changeValue}
             onBlur={this.onBlur}
           >
-            <Option value="1">Hola</Option>
-            <Option value="2">Hola</Option>
-            <Option value="3">Hola</Option>
+            <Option value="1">Hola 1</Option>
+            <Option value="2">Hola 2</Option>
+            <Option value="3">Hola 3</Option>
           </Select>
         </Item>
       </div>

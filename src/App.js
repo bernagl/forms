@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import './App.css'
-import 'antd/dist/antd.css'
 import Form from './components/Form'
 import Input from './components/Input'
 import Select from './components/Select'
@@ -42,7 +40,12 @@ class App extends Component {
           required
           type="number"
         />
-        <Select label="Selecciona un option" name="selectname" required />
+        <Select
+          label="Selecciona un option"
+          name="selectname"
+          defaultValue="3"
+          required
+        />
         <Radio label="Selecciona un option" name="radioname" required />
         <Checkbox label="Selecciona un option" name="Checkboxname" />
         <Datepicker label="Selecciona una fecha" name="datepicker" required />
