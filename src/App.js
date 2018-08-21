@@ -47,7 +47,7 @@ class App extends Component {
           required
         />
         <Radio label="Selecciona un option" name="radioname" required />
-        <Checkbox label="Selecciona un option" name="Checkboxname" />
+        <Checkbox label="Selecciona un option" name="Checkboxname" required/>
         <Datepicker
           label="Selecciona una fecha"
           name="datepicker"

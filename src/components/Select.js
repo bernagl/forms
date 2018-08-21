@@ -38,6 +38,7 @@ class MyInput extends React.Component {
       label,
       name,
       placeholder,
+      required,
       type
     } = this.props
     const { blurred } = this.state
@@ -45,7 +46,7 @@ class MyInput extends React.Component {
       <div>
         <Item
           layout="vertical"
-          label={label}
+          label={`${required ? '*' : ''} ${label}`}
           validateStatus={errorMessage ? 'error' : value ? 'success' : null}
           help={blurred ? (errorMessage ? errorMessage : null) : null}
           hasFeedback={feedBack && blurred}

@@ -13,8 +13,6 @@ class MyInput extends React.Component {
   changeValue = () => {
     this.setState(({ checked }) => {
       let check = typeof checked === 'undefined' ? true : undefined
-      console.log(typeof checked)
-      console.log(check)
       this.props.setValue(check)
       return { checked: check }
     })
@@ -25,31 +23,17 @@ class MyInput extends React.Component {
   }
 
   render() {
-    const errorMessage = this.props.getErrorMessage()
-    const value = this.props.getValue() || ''
-    const { feedBack, label, name, placeholder, type } = this.props
-    const { blurred } = this.state
-    // console.log(this.state.checked)
+    const { label, name, placeholder, required } = this.props
     return (
       <div>
-        {/* <Item
-          layout="vertical"
-          label={label}
-          validateStatus={errorMessage ? 'error' : value ? 'success' : null}
-          help={blurred ? (errorMessage ? errorMessage : null) : null}
-          hasFeedback={feedBack && blurred}
-        > */}
         <Checkbox
           placeholder={placeholder}
           id={name}
           name={name}
-          //   type={type}
           onChange={this.changeValue}
-          //   onBlur={this.onBlur}
         >
-          {label}
+          {`${required ? '*' : ''} ${label}`}
         </Checkbox>
-        {/* </Item> */}
       </div>
     )
   }

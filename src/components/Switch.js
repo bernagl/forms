@@ -25,10 +25,14 @@ class MyInput extends React.Component {
   }
 
   render() {
-    const { checkedText, uncheckedText, label, name, placeholder } = this.props
+    const { checkedText, uncheckedText, label, name, placeholder, required } = this.props
     return (
       <div>
-        <Item layout="vertical" label={label} style={{ paddingBottom: 0 }}>
+        <Item
+          layout="vertical"
+          label={`${required ? '*' : ''} ${label}`}
+          style={{ paddingBottom: 0 }}
+        >
           <Switch
             placeholder={placeholder}
             id={name}

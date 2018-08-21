@@ -26,7 +26,6 @@ class MyInput extends React.Component {
 
   changeValue = value => {
     const date = value ? moment(value).format(this.props.format) : undefined
-    console.log(date)
     this.props.setValue(date)
   }
 
@@ -39,12 +38,12 @@ class MyInput extends React.Component {
     const value = this.props.getValue()
     const val = value ? moment(value) : null
     const {
-      defaultValue,
       datePickerFormat,
       feedBack,
       label,
       name,
       placeholder,
+      required,
       type
     } = this.props
     const { blurred } = this.state
@@ -52,7 +51,7 @@ class MyInput extends React.Component {
       <div>
         <Item
           layout="vertical"
-          label={label}
+          label={`${required ? '*' : ''} ${label}`}
           validateStatus={errorMessage ? 'error' : value ? 'success' : null}
           help={blurred ? (errorMessage ? errorMessage : null) : null}
           hasFeedback={feedBack && blurred}

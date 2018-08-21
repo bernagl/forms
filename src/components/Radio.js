@@ -23,13 +23,13 @@ class MyInput extends React.Component {
   render() {
     const errorMessage = this.props.getErrorMessage()
     const value = this.props.getValue() || ''
-    const { feedBack, label, name, placeholder, type } = this.props
+    const { feedBack, label, name, placeholder, required, type } = this.props
     const { blurred } = this.state
     return (
       <div>
         <Item
           layout="vertical"
-          label={label}
+          label={`${required ? '*' : null} ${label}`}
           validateStatus={errorMessage ? 'error' : value ? 'success' : null}
           help={blurred ? (errorMessage ? errorMessage : null) : null}
           hasFeedback={feedBack && blurred}
